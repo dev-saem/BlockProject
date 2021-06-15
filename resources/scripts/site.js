@@ -4,104 +4,35 @@ const {
 const selectedAddress = web3.eth.defaultAccount
 
 $(document).ready(function () {
-    const userRegistryContractAddress = '0x05F82769a7aE4a08A7c68C722705daf78854492b';
+    const userRegistryContractAddress = '0xd71EAfc6feb07fDeFC1C50b80BD82a789E6efb23';
     const userRegistryContractABI = [
         {
            "constant": false,
            "inputs": [
               {
-                 "name": "_spender",
-                 "type": "address"
+                 "name": "_initNumber",
+                 "type": "uint256"
               },
               {
-                 "name": "_value",
-                 "type": "uint256"
-              }
-           ],
-           "name": "approve",
-           "outputs": [
+                 "name": "_user",
+                 "type": "string"
+              },
               {
-                 "name": "success",
-                 "type": "bool"
+                 "name": "_journal",
+                 "type": "string"
               }
            ],
+           "name": "addJournal",
+           "outputs": [],
            "payable": false,
            "stateMutability": "nonpayable",
            "type": "function"
         },
         {
            "constant": false,
-           "inputs": [
-              {
-                 "name": "_spender",
-                 "type": "address"
-              },
-              {
-                 "name": "_value",
-                 "type": "uint256"
-              },
-              {
-                 "name": "_extraData",
-                 "type": "bytes"
-              }
-           ],
-           "name": "approveAndCall",
-           "outputs": [
-              {
-                 "name": "success",
-                 "type": "bool"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "nonpayable",
-           "type": "function"
-        },
-        {
-           "constant": false,
-           "inputs": [
-              {
-                 "name": "_to",
-                 "type": "address"
-              },
-              {
-                 "name": "_value",
-                 "type": "uint256"
-              }
-           ],
-           "name": "transfer",
-           "outputs": [
-              {
-                 "name": "success",
-                 "type": "bool"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "nonpayable",
-           "type": "function"
-        },
-        {
-           "constant": false,
-           "inputs": [
-              {
-                 "name": "_from",
-                 "type": "address"
-              },
-              {
-                 "name": "_to",
-                 "type": "address"
-              },
-              {
-                 "name": "_value",
-                 "type": "uint256"
-              }
-           ],
-           "name": "transferFrom",
-           "outputs": [
-              {
-                 "name": "success",
-                 "type": "bool"
-              }
-           ],
+           "inputs": [],
+           "name": "killContract",
+           "outputs": [],
            "payable": false,
            "stateMutability": "nonpayable",
            "type": "function"
@@ -113,71 +44,31 @@ $(document).ready(function () {
            "type": "constructor"
         },
         {
-           "payable": true,
-           "stateMutability": "payable",
-           "type": "fallback"
-        },
-        {
-           "anonymous": false,
-           "inputs": [
-              {
-                 "indexed": true,
-                 "name": "_from",
-                 "type": "address"
-              },
-              {
-                 "indexed": true,
-                 "name": "_to",
-                 "type": "address"
-              },
-              {
-                 "indexed": false,
-                 "name": "_value",
-                 "type": "uint256"
-              }
-           ],
-           "name": "Transfer",
-           "type": "event"
-        },
-        {
-           "anonymous": false,
-           "inputs": [
-              {
-                 "indexed": true,
-                 "name": "_owner",
-                 "type": "address"
-              },
-              {
-                 "indexed": true,
-                 "name": "_spender",
-                 "type": "address"
-              },
-              {
-                 "indexed": false,
-                 "name": "_value",
-                 "type": "uint256"
-              }
-           ],
-           "name": "Approval",
-           "type": "event"
-        },
-        {
            "constant": true,
-           "inputs": [
-              {
-                 "name": "_owner",
-                 "type": "address"
-              },
-              {
-                 "name": "_spender",
-                 "type": "address"
-              }
-           ],
-           "name": "allowance",
+           "inputs": [],
+           "name": "getAlljournals",
            "outputs": [
               {
-                 "name": "remaining",
-                 "type": "uint256"
+                 "components": [
+                    {
+                       "name": "number",
+                       "type": "uint256"
+                    },
+                    {
+                       "name": "user",
+                       "type": "string"
+                    },
+                    {
+                       "name": "journal",
+                       "type": "string"
+                    },
+                    {
+                       "name": "timestamp",
+                       "type": "uint256"
+                    }
+                 ],
+                 "name": "",
+                 "type": "tuple[]"
               }
            ],
            "payable": false,
@@ -188,14 +79,26 @@ $(document).ready(function () {
            "constant": true,
            "inputs": [
               {
-                 "name": "_owner",
-                 "type": "address"
+                 "name": "_index",
+                 "type": "uint256"
               }
            ],
-           "name": "balanceOf",
+           "name": "getJournal",
            "outputs": [
               {
-                 "name": "balance",
+                 "name": "",
+                 "type": "uint256"
+              },
+              {
+                 "name": "",
+                 "type": "string"
+              },
+              {
+                 "name": "",
+                 "type": "string"
+              },
+              {
+                 "name": "",
                  "type": "uint256"
               }
            ],
@@ -206,7 +109,7 @@ $(document).ready(function () {
         {
            "constant": true,
            "inputs": [],
-           "name": "decimals",
+           "name": "getNumOfJournals",
            "outputs": [
               {
                  "name": "",
@@ -219,96 +122,29 @@ $(document).ready(function () {
         },
         {
            "constant": true,
-           "inputs": [],
-           "name": "fundsWallet",
-           "outputs": [
-              {
-                 "name": "",
-                 "type": "address"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
-        },
-        {
-           "constant": true,
-           "inputs": [],
-           "name": "name",
-           "outputs": [
-              {
-                 "name": "",
-                 "type": "string"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
-        },
-        {
-           "constant": true,
-           "inputs": [],
-           "name": "symbol",
-           "outputs": [
-              {
-                 "name": "",
-                 "type": "string"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
-        },
-        {
-           "constant": true,
-           "inputs": [],
-           "name": "totalEthInWei",
-           "outputs": [
+           "inputs": [
               {
                  "name": "",
                  "type": "uint256"
               }
            ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
-        },
-        {
-           "constant": true,
-           "inputs": [],
-           "name": "totalSupply",
+           "name": "journals",
            "outputs": [
               {
-                 "name": "",
+                 "name": "number",
                  "type": "uint256"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
-        },
-        {
-           "constant": true,
-           "inputs": [],
-           "name": "unitsOneEthCanBuy",
-           "outputs": [
+              },
               {
-                 "name": "",
-                 "type": "uint256"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
-        },
-        {
-           "constant": true,
-           "inputs": [],
-           "name": "version",
-           "outputs": [
-              {
-                 "name": "",
+                 "name": "user",
                  "type": "string"
+              },
+              {
+                 "name": "journal",
+                 "type": "string"
+              },
+              {
+                 "name": "timestamp",
+                 "type": "uint256"
               }
            ],
            "payable": false,

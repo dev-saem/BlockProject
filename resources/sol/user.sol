@@ -6,7 +6,6 @@ contract agricultureContract {
     uint8 numberOfJournals; // 총 제품의 수입니다.
     address contractOwner;
 
-
     //구조체
     struct journal {
         uint   number;
