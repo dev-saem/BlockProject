@@ -258,7 +258,7 @@ $(document).ready(function () {
             try {
                 await window.ethereum.enable();
             } catch (err) {
-                return showErroe("Access to your Ethereum account rejected")
+                return showError("Access to your Ethereum account rejected")
             }
         if (typeof web3 === 'undefined')
             return showError("Please install MetaMask to access the Ethereum Web3 injected API from your Web browser.");
@@ -272,9 +272,9 @@ $(document).ready(function () {
         let WhatContent = $('#content').val();
         console.log("WhatContent ", WhatContent);
 
-        let contract = web3.eth.contract(productRegistryContractABI).at(productRegistryContractAddress);
+        let contract = web3.eth.contract(userRegistryContractABI).at(userRegistryContractAddress);
 
-        contract.addProStru(WhatName, WhatContent, function (err, result) {
+        contract.addJournal(WhatName, WhatContent, function (err, result) {
             if (err)
                 return showError("Smart contract call failed: " + err);
             showInfo(`Document ${result} <b>successfully added</b> to the registry.`);
