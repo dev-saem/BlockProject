@@ -4,154 +4,154 @@ const {
 const selectedAddress = web3.eth.defaultAccount
 
 $(document).ready(function () {
-    const userRegistryContractAddress = '0xd71EAfc6feb07fDeFC1C50b80BD82a789E6efb23';
+    const userRegistryContractAddress = '0x3FF891e2646418aE914A855Fc0654c03114A1Df8';
     const userRegistryContractABI = [
         {
-           "constant": false,
-           "inputs": [
-              {
-                 "name": "_initNumber",
-                 "type": "uint256"
-              },
-              {
-                 "name": "_user",
-                 "type": "string"
-              },
-              {
-                 "name": "_journal",
-                 "type": "string"
-              }
-           ],
-           "name": "addJournal",
-           "outputs": [],
-           "payable": false,
-           "stateMutability": "nonpayable",
-           "type": "function"
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "journals",
+            "outputs": [
+                {
+                    "name": "number",
+                    "type": "uint256"
+                },
+                {
+                    "name": "user",
+                    "type": "string"
+                },
+                {
+                    "name": "journal",
+                    "type": "string"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
         },
         {
-           "constant": false,
-           "inputs": [],
-           "name": "killContract",
-           "outputs": [],
-           "payable": false,
-           "stateMutability": "nonpayable",
-           "type": "function"
+            "constant": false,
+            "inputs": [],
+            "name": "killContract",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
         },
         {
-           "inputs": [],
-           "payable": false,
-           "stateMutability": "nonpayable",
-           "type": "constructor"
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "_index",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getJournal",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
         },
         {
-           "constant": true,
-           "inputs": [],
-           "name": "getAlljournals",
-           "outputs": [
-              {
-                 "components": [
-                    {
-                       "name": "number",
-                       "type": "uint256"
-                    },
-                    {
-                       "name": "user",
-                       "type": "string"
-                    },
-                    {
-                       "name": "journal",
-                       "type": "string"
-                    },
-                    {
-                       "name": "timestamp",
-                       "type": "uint256"
-                    }
-                 ],
-                 "name": "",
-                 "type": "tuple[]"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
+            "constant": true,
+            "inputs": [],
+            "name": "getNumOfJournals",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
         },
         {
-           "constant": true,
-           "inputs": [
-              {
-                 "name": "_index",
-                 "type": "uint256"
-              }
-           ],
-           "name": "getJournal",
-           "outputs": [
-              {
-                 "name": "",
-                 "type": "uint256"
-              },
-              {
-                 "name": "",
-                 "type": "string"
-              },
-              {
-                 "name": "",
-                 "type": "string"
-              },
-              {
-                 "name": "",
-                 "type": "uint256"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
+            "constant": true,
+            "inputs": [],
+            "name": "getAlljournals",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "name": "number",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "user",
+                            "type": "string"
+                        },
+                        {
+                            "name": "journal",
+                            "type": "string"
+                        },
+                        {
+                            "name": "timestamp",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
         },
         {
-           "constant": true,
-           "inputs": [],
-           "name": "getNumOfJournals",
-           "outputs": [
-              {
-                 "name": "",
-                 "type": "uint8"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "_initNumber",
+                    "type": "uint256"
+                },
+                {
+                    "name": "_user",
+                    "type": "string"
+                },
+                {
+                    "name": "_journal",
+                    "type": "string"
+                }
+            ],
+            "name": "addJournal",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
         },
         {
-           "constant": true,
-           "inputs": [
-              {
-                 "name": "",
-                 "type": "uint256"
-              }
-           ],
-           "name": "journals",
-           "outputs": [
-              {
-                 "name": "number",
-                 "type": "uint256"
-              },
-              {
-                 "name": "user",
-                 "type": "string"
-              },
-              {
-                 "name": "journal",
-                 "type": "string"
-              },
-              {
-                 "name": "timestamp",
-                 "type": "uint256"
-              }
-           ],
-           "payable": false,
-           "stateMutability": "view",
-           "type": "function"
+            "inputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
         }
-     ]
+    ]
 
     
     $('#uploadbutton').click(uploadbutton);
