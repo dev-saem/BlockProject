@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    background-image: url(../images/bgbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+body > img {
+    top: 3%;
+    left: 60%;
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    /* display: ; */
+}
+
+body >  span {
+  font-size: 2rem; /*1rem = 16px*/
+  font-weight: bold;
+  display: flex; /*정렬하는 옵션*/
+  align-items: center; /* display가 flex 일 때 */
+  flex-direction: column; /* 어느 방향으로 정렬할 것인지(행으로 정렬) */
+}
+
+body > h1 {
+  text-align: center;
+}
+
+body > h4 {
+  text-align: center;
+}
+
+body > div.menuNav {
+  width: 100vw; /*넓이를 스크롤을 무시하고 가득채움*/
+  height: 100vh; /*높이를 스크롤을 무시하고 가득채움*/
+  display: grid; /*행렬로 만들기*/
+  grid-template-rows: repeat(3, 1fr); /*가로 방향으로 2행, 1:1 비율*/
+  grid-template-columns: repeat(3, 1fr); /*세로 방향으로 2열, 1:1 비율*/
+  /* position: relative; absolute 위치 조정 */
+}
+
+body > div.menuNav > a {
+    pointer-events: none;
+}
+
+body > div.menuNav > a > input {
+  width: 12.5rem;
+  height: 6.25rem;
+  color: #fff;
+  background-color: #5d7099;
+  font-size: 1rem;
+  border: none; /*테두리 없애기*/
+  border-radius: 0.3rem; /*모서리 곡선 만들기*/
+  box-shadow: 0 0.25rem 1rem rgba(83, 114, 177, 0.3); /*그림자 만들기*/
+  transition-duration: 0.3s; /*0.3초만에 그림자 생성*/
+  position: relative; /*아래 옵션을 움직이게 하기 위해서*/
+  left: 50%; /*중앙 배열, left, top, transform 3종 세트*/
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: all;
+}
+
+body > div.menuNav > a > input:hover {
+  /*마우스를 input에 올렸을 때*/
+  background-color: rgba(83, 114, 177, 0.9); /*명암도 조절*/
+  cursor: pointer; /*마우스가 손가락 모양*/
+  box-shadow: 0 0.25rem 1rem rgba(83, 114, 177, 0.6); /*그림자 만들기*/
+}
+
+body > div.menuNav > div {
+  position: relative;
+}
+
+body > div.menuNav > div > input {
+  width: 12.5rem;
+  height: 6.25rem;
+  color: #fff;
+  background-color: #5d7099;;
+  font-size: 1rem;
+  border: none; /*테두리 없애기*/
+  border-radius: 0.3rem; /*모서리 곡선 만들기*/
+  box-shadow: 0 0.25rem 1rem rgba(83, 114, 177, 0.3); /*그림자 만들기*/
+  transition-duration: 0.3s; /*0.3초만에 그림자 생성*/
+  position: relative; /*아래 옵션을 움직이게 하기 위해서*/
+  left: 50%; /*중앙 배열, left, top, transform 3종 세트*/
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body > div.menuNav > div > input:hover {
+  background-color: rgba(83, 114, 177, 0.9); /*명암도 조절*/
+  cursor: pointer; /*마우스가 손가락 모양*/
+  box-shadow: 0 0.25rem 1rem rgba(83, 114, 177, 0.6); /*그림자 만들기*/
+}
+
+body > div.menuNav > div > span {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body > div.menuNav > div > span > a {
+  font-size: 0.8rem;
+  color: #fff;
+  text-decoration: none; /*문자의 장식을 삭제*/
+}
+
+body > div.menuNav > div > span > a:not(:last-child) {
+  margin-right: 0.8rem;
+}

@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+body > h1 {
+    text-align: center;
+}
+
+body > p {
+    text-align: center;
+}
+
+body > label {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+body > div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+body > img {
+    top: 15%;
+    left: 60%;
+    position: absolute;
+    width: 15rem;
+    height: 15rem;
+    opacity: 0;
+}
+
+body > img.visible {
+    opacity: 1;
+}

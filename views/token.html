@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheets/token.css" type="text/css" />
+    <script defer src="scripts/token.js"></script>
+    <title>Token</title>
+</head>
+
+<body>
+    <h1>Token 현황 관리</h1>
+    <p>본인의 token 현황을 알 수 있습니다. </p>
+    <h3>★ Token 부여 방식 ★</h3>
+    <li>근무일지 작성 : 1 Token</li>
+    <li>안전사고신고 : 책임관리자 - 1 Token / 근무자 - 2 Token</li>
+    <li>근무일지 승인 : 0.5 Token (해당 날짜 승인 시 부여)</li>
+    <li>안전수칙 메뉴얼 읽기 (선택사항) : 0.5 Token</li>
+    <li>정시 출근 : 1 Token</li>
+    <h5>▶ 모은 Token으로 식권 구매 가능</h5>
+    <br>
+    <h5>본인계정 <input id="useraddress" size="45" placeholder="" value=""></input> </h5>
+    <h5>식권구매처 <input id="toaddress" size="45" placeholder=""></input> </h5>
+	<h5>비밀번호 <input type="password" id="passwd" size="45" placeholder="" value=""></input> </h5>
+    <h5>코인 <input id="sendcoin" size="45" placeholder=""></input> </h5>
+    <br>
+    <label>식권구매:
+        <button id="itembuy">구매</button>
+    </label>
+    <br>
+    <label>
+            <button id="getBalance">잔액조회</button>
+    </label>
+</body>
+
+</html>

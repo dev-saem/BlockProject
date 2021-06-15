@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="stylesheets/notification.css" type="text/css" />
+    <script defer src="scripts/notification.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+    <title>Notification</title>
+</head>
+
+<body>
+    <h1>안전사고신고</h1>
+    <p>안전사고발생을 신고해주세요. 날짜, 이름, 내용을 입력해 주시면 됩니다.</p>
+    <label>날짜:
+        <input type="text" id="datepicker">
+    </label>
+    <br>
+    <br>
+    <label>신고자:
+        <input type="text" id="name">
+    </label>
+    <br>
+    <br>
+    <label>내용:
+        <textarea cols="30" rows="3" id="content"></textarea>
+    </label>
+    <br>
+    <br>
+    <label>제출 :
+        <input type="button" id="uploadbutton" value="submit">
+    </label>
+    <br>
+    <br>
+    <label> 현황:
+        <input type="button" id="showTableButton" value="Show" />
+    </label>
+</body>
+
+</html>

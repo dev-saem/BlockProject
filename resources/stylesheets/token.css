@@ -1,0 +1,35 @@
+body > h1 {
+    text-align: center;
+}
+
+body > h3 {
+    text-align: center;
+}
+
+body > h4 {
+    text-align: center;
+}
+
+body > h5 {
+    text-align: center;
+}
+
+body > p {
+    text-align: center;
+}
+
+body > li {
+    text-align: center;
+}
+
+body > label {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+body > div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

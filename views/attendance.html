@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="stylesheets/attendance.css" type="text/css" />
+    <script defer type="text/javascript" src="scripts/attendance.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+
+    </script>
+    <title>Attendance</title>
+</head>
+
+<body>
+    <h1>출결 관리</h1>
+    <p>출결 등록을 위해 이름을 입력해주세요. 안전수칙 메뉴얼을 정독해주세요.</p>
+    <label>
+        <input type="button" value="안전수칙 메뉴얼" ; id="imgInput">
+    </label>
+    <br>
+    <img src="images/safe.jpg" alt>
+    <div id = 'img'></div>
+    <label>날짜:
+        <input type="text" id="datepicker">
+    </label>
+    <br>
+    <br>
+    <label>성함:
+        <input type="text" id="name">
+    </label>
+    <br>
+    <br>
+    <label>등록 :
+        <input type="button" id="uploadbutton" value="submit">
+    </label>
+    <br>
+    <br>
+    <label> 출결현황:
+        <input type="button" id="showTableButton" value="Show" />
+    </label>
+</body>
+
+</html>

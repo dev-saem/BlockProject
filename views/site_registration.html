@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="stylesheets/site.css" type="text/css" />
+    <script defer src="scripts/site.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+    <title>Site_registration</title>
+</head>
+
+<body>
+    <section id="loadingBox">Loading ...</section>
+
+    <section id="infoBox"><header>x</header><p>Info</p></section>
+
+    <section id="errorBox"><header>x</header><p>Error</p></section>
+    
+    <h1>근무 현장관리 등록</h1>
+    <p>근무일지를 작성해주세요. 날짜, 이름, 내용을 입력해 주시면 됩니다. </p>
+    <label>날짜:
+        <input type="text" id="datepicker">
+    </label>
+    <br>
+    <br>
+    <label>근무자:
+        <input type="text" id="name">
+    </label>
+    <br>
+    <br>
+    <label>내용:
+        <textarea cols="30" rows="3" id="content"></textarea>
+    </label>
+    <br>
+    <br>
+    <label>제출 :
+        <input type="button" id="uploadbutton" value="submit">
+    </label>
+</body>
+
+</html>
