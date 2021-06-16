@@ -272,9 +272,12 @@ $(document).ready(function () {
        let WhatContent = $('#content').val();
        console.log("WhatContent ", WhatContent);
 
+       let date = new Date();
+       let mills = date.getMilliseconds();
+
        let contract = web3.eth.contract(userRegistryContractABI).at(userRegistryContractAddress);
 
-       contract.addJournal(WhatName, WhatContent, function (err, result) {
+       contract.addJournal(mills, WhatName, WhatContent, function (err, result) {
            if (err)
                return showError("Smart contract call failed: " + err);
            showInfo(`Document ${result} <b>successfully added</b> to the registry.`);
