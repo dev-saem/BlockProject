@@ -266,7 +266,7 @@ $(document).ready(function () {
        let account = selectedAddress
        console.log("my account", account);
 
-       let WhatName = $('#name').val();
+       let WhatName = $('#user').val();
        console.log("WhatName ", WhatName);
 
        let WhatContent = $('#content').val();
