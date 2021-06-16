@@ -11,3 +11,9 @@ body > label {
     align-items: center;
     flex-direction: column;
 }
+
+body > div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
