@@ -1,6 +1,18 @@
 $(document).ready(function () { // 화면이 시작하자마자 그려짐
     let DEBUG = 1;
 
+    const { web3 } = window
+    const selectedAddress = web3.eth.defaultAccount // 메타마스크에서 보이는 현재 계정
+
+    if (window.ethereum) // 현재 메타마스크가 설치되어있는지
+			try {
+				await window.ethereum.enable(); // 설치되어있으면 enable
+			} catch (err) {
+                return showError("Access to your Ethereum account rejected.");
+			}
+		if (typeof web3 === 'undefined') // 설치안되어있으면 설치 요청 문구 
+                return showError("Please install MetaMask to access the Ethereum Web3 injected API from your Web browser.");
+
     const web3 = new Web3('https://ropsten.infura.io/v3/3c52917848e945229c0d33d632b10490');
     let Buffer = ethereumjs.Buffer.Buffer;
     let version = web3.version;
