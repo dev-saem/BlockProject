@@ -4,37 +4,28 @@ const {
 const selectedAddress = web3.eth.defaultAccount
 
 $(document).ready(function () {
-    const userRegistryContractAddress = '0x3FF891e2646418aE914A855Fc0654c03114A1Df8';
+    const userRegistryContractAddress = '0xf47Caf171892814Fd63c60e9BE83EDB2B8A27fD6';
     const userRegistryContractABI = [
         {
-            "constant": true,
+            "constant": false,
             "inputs": [
                 {
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "name": "journals",
-            "outputs": [
-                {
-                    "name": "number",
+                    "name": "_initNumber",
                     "type": "uint256"
                 },
                 {
-                    "name": "user",
+                    "name": "_user",
                     "type": "string"
                 },
                 {
-                    "name": "journal",
+                    "name": "_journal",
                     "type": "string"
-                },
-                {
-                    "name": "timestamp",
-                    "type": "uint256"
                 }
             ],
+            "name": "addJournal",
+            "outputs": [],
             "payable": false,
-            "stateMutability": "view",
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -44,6 +35,44 @@ $(document).ready(function () {
             "outputs": [],
             "payable": false,
             "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "getAlljournals",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "name": "number",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "user",
+                            "type": "string"
+                        },
+                        {
+                            "name": "journal",
+                            "type": "string"
+                        },
+                        {
+                            "name": "timestamp",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -93,63 +122,34 @@ $(document).ready(function () {
         },
         {
             "constant": true,
-            "inputs": [],
-            "name": "getAlljournals",
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "journals",
             "outputs": [
                 {
-                    "components": [
-                        {
-                            "name": "number",
-                            "type": "uint256"
-                        },
-                        {
-                            "name": "user",
-                            "type": "string"
-                        },
-                        {
-                            "name": "journal",
-                            "type": "string"
-                        },
-                        {
-                            "name": "timestamp",
-                            "type": "uint256"
-                        }
-                    ],
-                    "name": "",
-                    "type": "tuple[]"
+                    "name": "number",
+                    "type": "uint256"
+                },
+                {
+                    "name": "user",
+                    "type": "string"
+                },
+                {
+                    "name": "journal",
+                    "type": "string"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "uint256"
                 }
             ],
             "payable": false,
             "stateMutability": "view",
             "type": "function"
-        },
-        {
-            "constant": false,
-            "inputs": [
-                {
-                    "name": "_initNumber",
-                    "type": "uint256"
-                },
-                {
-                    "name": "_user",
-                    "type": "string"
-                },
-                {
-                    "name": "_journal",
-                    "type": "string"
-                }
-            ],
-            "name": "addJournal",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "constructor"
         }
     ]
 
