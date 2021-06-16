@@ -4,154 +4,154 @@ const {
   const selectedAddress = web3.eth.defaultAccount
   
   $(document).ready(function () {
-     const userRegistryContractAddress = '0xf47Caf171892814Fd63c60e9BE83EDB2B8A27fD6';
+     const userRegistryContractAddress = '0x0c4f492dA9dcA6c690aA6B8c7d17647bB9025F95';
      const userRegistryContractABI = [
-         {
-             "constant": false,
-             "inputs": [
-                 {
-                     "name": "_initNumber",
-                     "type": "uint256"
-                 },
-                 {
-                     "name": "_user",
-                     "type": "string"
-                 },
-                 {
-                     "name": "_journal",
-                     "type": "string"
-                 }
-             ],
-             "name": "addJournal",
-             "outputs": [],
-             "payable": false,
-             "stateMutability": "nonpayable",
-             "type": "function"
-         },
-         {
-             "constant": false,
-             "inputs": [],
-             "name": "killContract",
-             "outputs": [],
-             "payable": false,
-             "stateMutability": "nonpayable",
-             "type": "function"
-         },
-         {
-             "inputs": [],
-             "payable": false,
-             "stateMutability": "nonpayable",
-             "type": "constructor"
-         },
-         {
-             "constant": true,
-             "inputs": [],
-             "name": "getAlljournals",
-             "outputs": [
-                 {
-                     "components": [
-                         {
-                             "name": "number",
-                             "type": "uint256"
-                         },
-                         {
-                             "name": "user",
-                             "type": "string"
-                         },
-                         {
-                             "name": "journal",
-                             "type": "string"
-                         },
-                         {
-                             "name": "timestamp",
-                             "type": "uint256"
-                         }
-                     ],
-                     "name": "",
-                     "type": "tuple[]"
-                 }
-             ],
-             "payable": false,
-             "stateMutability": "view",
-             "type": "function"
-         },
-         {
-             "constant": true,
-             "inputs": [
-                 {
-                     "name": "_index",
-                     "type": "uint256"
-                 }
-             ],
-             "name": "getJournal",
-             "outputs": [
-                 {
-                     "name": "",
-                     "type": "uint256"
-                 },
-                 {
-                     "name": "",
-                     "type": "string"
-                 },
-                 {
-                     "name": "",
-                     "type": "string"
-                 },
-                 {
-                     "name": "",
-                     "type": "uint256"
-                 }
-             ],
-             "payable": false,
-             "stateMutability": "view",
-             "type": "function"
-         },
-         {
-             "constant": true,
-             "inputs": [],
-             "name": "getNumOfJournals",
-             "outputs": [
-                 {
-                     "name": "",
-                     "type": "uint8"
-                 }
-             ],
-             "payable": false,
-             "stateMutability": "view",
-             "type": "function"
-         },
-         {
-             "constant": true,
-             "inputs": [
-                 {
-                     "name": "",
-                     "type": "uint256"
-                 }
-             ],
-             "name": "journals",
-             "outputs": [
-                 {
-                     "name": "number",
-                     "type": "uint256"
-                 },
-                 {
-                     "name": "user",
-                     "type": "string"
-                 },
-                 {
-                     "name": "journal",
-                     "type": "string"
-                 },
-                 {
-                     "name": "timestamp",
-                     "type": "uint256"
-                 }
-             ],
-             "payable": false,
-             "stateMutability": "view",
-             "type": "function"
-         }
-     ]
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "getNumOfManagers",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "killContract",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "_initNumber",
+                    "type": "uint256"
+                },
+                {
+                    "name": "_manager",
+                    "type": "string"
+                },
+                {
+                    "name": "_content",
+                    "type": "string"
+                }
+            ],
+            "name": "addManagers",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "mgrs",
+            "outputs": [
+                {
+                    "name": "number",
+                    "type": "uint256"
+                },
+                {
+                    "name": "manager",
+                    "type": "string"
+                },
+                {
+                    "name": "content",
+                    "type": "string"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "_index",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getManagers",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "getAllManagers",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "name": "number",
+                            "type": "uint256"
+                        },
+                        {
+                            "name": "manager",
+                            "type": "string"
+                        },
+                        {
+                            "name": "content",
+                            "type": "string"
+                        },
+                        {
+                            "name": "timestamp",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        }
+    ]
   
     
     $('#uploadbutton').click(uploadbutton);
@@ -204,9 +204,9 @@ const {
   
         let contract = web3.eth.contract(userRegistryContractABI).at(userRegistryContractAddress);
   
-        $('#myTable').append(  '<table>' );
+        $('#managerTable').append(  '<table>' );
   
-        contract.getNumOfJournals(function (err, result) {
+        contract.getNumOfManagers(function (err, result) {
             if (err)
                 return showError("Smart contract call failed: " + err);
   
@@ -216,7 +216,7 @@ const {
   
             for (let i = 0; i < result; i++) {
   
-                contract.getJournal(i, function (err, user) {
+                contract.getManagers(i, function (err, user) {
   
                     console.log("user: " + user);
   
@@ -239,7 +239,7 @@ const {
                     // cell4.style.width ="60%";
                     // cell4.innerHTML = timestamp;
   
-                    $('#myTable').append( '<tr><td>' + strArray[0] + ", "+ strArray[1] + ", "+ strArray[2] + ", "+ timestamp  + '</td></tr>' );
+                    $('#managerTable').append( '<tr><td>' + strArray[0] + ", "+ strArray[1] + ", "+ strArray[2] + ", "+ timestamp  + '</td></tr>' );
   
                 }) // end of get
   
@@ -251,7 +251,7 @@ const {
         // 	$('#myTable').append( '<tr><td>' + 'result' +  i + '</td></tr>' );
         // 
   
-        $('#myTable').append(  '</table>' );
+        $('managerTable').append(  '</table>' );
     }
   
   
@@ -269,7 +269,7 @@ const {
         let account = selectedAddress
         console.log("my account", account);
   
-        let WhatName = $('#user').val();
+        let WhatName = $('#manager').val();
         console.log("WhatName ", WhatName);
   
         let WhatContent = $('#content').val();
@@ -280,7 +280,7 @@ const {
   
         let contract = web3.eth.contract(userRegistryContractABI).at(userRegistryContractAddress);
   
-        contract.addJournal(mills, WhatName, WhatContent, function (err, result) {
+        contract.addManagers(mills, WhatName, WhatContent, function (err, result) {
             if (err)
                 return showError("Smart contract call failed: " + err);
             showInfo(`Document ${result} <b>successfully added</b> to the registry.`);

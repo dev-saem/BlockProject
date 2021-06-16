@@ -76,5 +76,7 @@ $(document).ready(function () { // 화면이 시작하자마자 그려짐
 
         if (DEBUG) console.log("balance : ", balance + " ETH");
         $('#message').text(" balance: " + balance + " ETH");
+
+        $('#tokenTable').append("balance : ", balance + " ETH");
     })
 })

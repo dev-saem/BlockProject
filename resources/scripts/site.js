@@ -204,7 +204,7 @@ const {
   
         let contract = web3.eth.contract(userRegistryContractABI).at(userRegistryContractAddress);
   
-        $('#myTable').append(  '<table>' );
+        $('#siteTable').append(  '<table>' );
   
         contract.getNumOfJournals(function (err, result) {
             if (err)
@@ -239,7 +239,7 @@ const {
                     // cell4.style.width ="60%";
                     // cell4.innerHTML = timestamp;
   
-                    $('#myTable').append( '<tr><td>' + strArray[0] + ", "+ strArray[1] + ", "+ strArray[2] + ", "+ timestamp  + '</td></tr>' );
+                    $('#siteTable').append( '<tr><td>' + strArray[0] + ", "+ strArray[1] + ", "+ strArray[2] + ", "+ timestamp  + '</td></tr>' );
   
                 }) // end of get
   
@@ -251,7 +251,7 @@ const {
         // 	$('#myTable').append( '<tr><td>' + 'result' +  i + '</td></tr>' );
         // 
   
-        $('#myTable').append(  '</table>' );
+        $('#siteTable').append(  '</table>' );
     }
   
   
